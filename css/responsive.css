@@ -43,7 +43,8 @@ nav h1 {
     position: fixed;
 
 
-    width: cacl(50% - 50px);
+    /*width: cacl(50% - 50px);*/
+    width: 45%;
 }
 
 @media(min-width: 800px) {
