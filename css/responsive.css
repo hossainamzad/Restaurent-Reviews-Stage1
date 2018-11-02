@@ -56,6 +56,12 @@ ul#restaurants-list {
     justify-self: start;
     padding-left: 0px;
   }
+  #reviews-list li {
+
+        font-size: 25px;
+        text-align: left;
+        width: 80%;
+    }
 }
 
 
