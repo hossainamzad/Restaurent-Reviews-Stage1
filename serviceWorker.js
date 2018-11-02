@@ -47,17 +47,30 @@ self.addEventListener('activate', event => {
   );
 });
 
-
-self.addEventListener('fetch', event => {
-
-  const request = event.request.url.includes('/restaurant.html')
-    ? new Request('/restaurant.html')
-    : event.request;
-
+self.addEventListener('fetch', function(event) {
   event.respondWith(
-    caches.match(request).then(response => response || fetch(request)),
+    caches.match(event.request)
+      .then(function(response) {
+        if (response) {
+          return response
+        }
+        .catch(function(err) {
+          console.error(err);
+      }
+    )
   );
 });
+
+// self.addEventListener('fetch', event => {
+
+//   const request = event.request.url.includes('/restaurant.html')
+//     ? new Request('/restaurant.html')
+//     : event.request;
+
+//   event.respondWith(
+//     caches.match(request).then(response => response || fetch(request)),
+//   );
+// });
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
