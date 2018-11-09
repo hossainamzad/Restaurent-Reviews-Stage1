@@ -15,11 +15,11 @@ const filesToCache = [
   '/img/8.jpg',
   '/img/9.jpg',
   '/img/10.jpg',
-  '/public/css/styles.min.css',
-  '/public/css/responsive.min.css',
-  '/public/js/dbhelper.min.js',
-  '/public/js/main.min.js',
-  '/public/js/restaurant_info.min.js',
+  '/css/styles.css',
+  '/css/responsive.css',
+  '/js/dbhelper.js',
+  '/js/main.js',
+  '/js/restaurant_info.js',
 ];
 
 self.addEventListener('install', event => {
@@ -54,10 +54,8 @@ self.addEventListener('fetch', function(event) {
         if (response) {
           return response
         }
-        .catch(function(err) {
-          console.error(err);
-      }
-    )
+        return fetch(event.request);
+    })
   );
 });
 
@@ -72,14 +70,14 @@ self.addEventListener('fetch', function(event) {
 //   );
 // });
 
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/sw.js').then(function(registration) {
-        // Registration was successful
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }, function(err) {
-        // registration failed :(
-        console.log('ServiceWorker registration failed: ', err);
-      });
-    });
-  }
+// if ('serviceWorker' in navigator) {
+//     window.addEventListener('load', function() {
+//       navigator.serviceWorker.register('/serviceWorker.js').then(function(registration) {
+//         // Registration was successful
+//         console.log('ServiceWorker registration successful with scope: ', registration.scope);
+//       }, function(err) {
+//         // registration failed :(
+//         console.log('ServiceWorker registration failed: ', err);
+//       });
+//     });
+//   }
